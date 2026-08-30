@@ -35,13 +35,14 @@ GitHub：<https://github.com/anonymousguestme-ctrl/IELTS--vocabulary>
 
 <a href="#macos-使用方式">🍎 macOS</a>　<a href="#windows-使用方式">🪟 Windows</a>
 
+系统入口文件夹：[`macOS/`](./macOS/)　[`Windows/`](./Windows/)
+
 ## 它是什么 App？
 
 这是一个**本地运行的 Web App**，核心由 HTML、CSS 和原生 JavaScript 构成。项目提供 macOS 和 Windows 的双击启动入口：
 
-- `雅思词汇本.app`：桌面图标应用，负责启动本地服务并打开页面。
-- `启动雅思词汇本.command`：备用的 Terminal 启动脚本。
-- `启动雅思词汇本.bat`：Windows 双击启动脚本。
+- `macOS/`：macOS 双击启动脚本和 `.app` 启动器源码。
+- `Windows/`：Windows 双击启动脚本。
 - `server.py`：本地静态服务器，以及可选的 DeepSeek 查询代理。
 
 它不是需要安装到系统里的原生 Cocoa 应用，也不依赖云端账号。学习记录默认保存在当前浏览器本地。
@@ -51,7 +52,7 @@ GitHub：<https://github.com/anonymousguestme-ctrl/IELTS--vocabulary>
 推荐直接双击桌面上的：
 
 ```text
-桌面上的 `雅思词汇本.app`
+项目 `macOS/` 文件夹中的 `启动雅思词汇本.command`
 ```
 
 应用会检查 `8765` 端口，启动或复用本地服务，然后打开：
@@ -60,13 +61,13 @@ GitHub：<https://github.com/anonymousguestme-ctrl/IELTS--vocabulary>
 http://127.0.0.1:8765/
 ```
 
-也可以双击项目目录里的 `启动雅思词汇本.command`。关闭启动它的 Terminal 窗口即可停止服务。
+也可以使用 `macOS/WordBenchApp/` 构建桌面应用。关闭启动它的 Terminal 窗口即可停止服务。
 
 ## Windows 使用方式
 
 1. 安装 [Python 3](https://www.python.org/downloads/windows/)，安装时勾选 **Add Python to PATH**。
-2. 下载或克隆本项目，保持 `启动雅思词汇本.bat` 与 `server.py` 在同一个文件夹。
-3. 双击 `启动雅思词汇本.bat`。
+2. 下载或克隆本项目，保持 `Windows/` 文件夹与根目录中的 `server.py` 在同一个项目目录。
+3. 双击 `Windows/启动雅思词汇本.bat`。
 
 脚本会自动检测 `py -3` 或 `python`，启动本地服务并打开默认浏览器：
 
@@ -146,9 +147,8 @@ index.html                  Web App 页面
 styles.css                  页面、响应式和打印样式
 app.js                      交互、查询、本地保存和卡片逻辑
 server.py                   本地服务器和 DeepSeek 代理
-启动雅思词汇本.command       macOS Terminal 启动脚本
-启动雅思词汇本.bat          Windows 双击启动脚本
-WordBenchApp/               macOS .app 启动器源码和图标
+macOS/                      macOS 启动脚本、.app 启动器源码和图标
+Windows/                    Windows 双击启动脚本
 ielts-dictionary.js         Excel 词库
 repo-ielts-dictionary.js    GitHub IELTS 词库
 hf-ielts-dictionary.js      my-ielts 词库
