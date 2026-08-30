@@ -4,7 +4,7 @@
 
 ## 在线使用
 
-打开仓库中的 [`index.html`](./index.html) 即可使用。不需要安装依赖，不需要账号，也不需要后端服务。
+打开仓库中的 [`index.html`](./index.html) 即可使用。不需要安装依赖，不需要账号，也不需要后端服务。此方式支持内置词库和公开词典查询；如果要使用 DeepSeek 补全未收录内容，请按下方方式启动本地代理。
 
 ```bash
 open index.html
@@ -43,7 +43,13 @@ open index.html
 
 ### 3. 添加短语或句子
 
-短语和句子可以作为独立条目记录，不必依附于某个单词。短语适合记录 `carry out research` 等固定搭配，也可以填写多个中文释义；句子适合记录听力原句、写作模板或自己的例句，不需要自动匹配词性和释义。没有内容时，对应区域不会出现在词汇卡片中。
+录入区有三个模式，逻辑彼此独立：
+
+- **单词**：填写单词，自动匹配词性和释义；常用短语、例句都是可选的。
+- **短语 / 固定搭配**：把整个搭配作为条目，例如 `carry out research`。短语没有独立词性，因此不显示词性选择；可以自动匹配或手动填写中文释义，也可以补充一个例句。
+- **句子**：把听力原句、写作模板或自己的例句作为条目。句子不属于词性词义条目，因此不查询、不显示词性、释义和常用短语。
+
+三种模式都可以按 Enter 提交。空的短语或例句不会在卡片中显示。
 
 ### 4. 词汇卡片
 
@@ -68,6 +74,17 @@ open index.html
 
 查询顺序：浏览器本地缓存 → 内置 Excel 词库 → GitHub IELTS Word List 词库 → 公开英文词典接口（仅在本地没有命中时尝试）。本地词库命中时不需要联网；联网查询最多等待 4 秒，超时后仍然可以手动填写并保存。
 
+### DeepSeek 补全未收录内容
+
+DeepSeek 通过本地 `server.py` 代理调用，API Key 不会写入前端或提交到 GitHub。需要 Python 3：
+
+```bash
+cd "/Users/adele/Desktop/IELTS- vocabulary"
+DEEPSEEK_API_KEY="你的 DeepSeek API Key" python3 server.py
+```
+
+然后打开 `http://127.0.0.1:8765/`，在单词或短语模式点击“用 DeepSeek 查询未收录词”。句子模式不会调用 DeepSeek。
+
 ## 数据与隐私
 
 - 新增词条、掌握状态和查询缓存保存在当前浏览器的 `localStorage` 中。
@@ -90,7 +107,8 @@ styles.css                  页面样式和打印样式
 app.js                      交互、本地保存、查询和筛选
 ielts-dictionary.js         Excel 提取的离线词库
 repo-ielts-dictionary.js    GitHub IELTS Word List 提取的词库
-hf-ielts-dictionary.js      hefengxian/my-ielts 提取的词库
+ hf-ielts-dictionary.js      hefengxian/my-ielts 提取的词库
+server.py                    本地静态服务器和 DeepSeek 查询代理
 ```
 
 ## 技术说明
@@ -102,9 +120,9 @@ hf-ielts-dictionary.js      hefengxian/my-ielts 提取的词库
 
 ## 当前限制
 
-- 部分导入词条的词性会显示为“IELTS 词汇”，可以在录入后手动修改。
 - 部分源词条只有单词和释义，没有短语或例句。
 - 当前版本是单机本地版，不提供跨设备同步。
+- DeepSeek 功能需要自行提供 API Key，并依赖网络；未启动 `server.py` 时按钮会提示无法连接。
 
 ## License
 

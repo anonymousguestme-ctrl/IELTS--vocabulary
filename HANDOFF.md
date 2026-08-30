@@ -6,9 +6,9 @@
 - Repository: https://github.com/anonymousguestme-ctrl/IELTS--vocabulary
 - Local path: `/Users/adele/Desktop/IELTS- vocabulary`
 - Branch: `main`
-- Latest commit: `a68b204 feat: edit vocabulary cards`
+- Latest commit: pending (entry modes and DeepSeek proxy are currently uncommitted)
 
-This is a static, browser-only IELTS vocabulary tracker. It can be opened directly from `index.html`; no package manager, build step, backend, or account is required.
+This is a static IELTS vocabulary tracker with an optional local Python proxy for DeepSeek. It can still be opened directly from `index.html` for offline/local-dictionary use.
 
 ## 2. Delivered Features
 
@@ -33,6 +33,14 @@ The part-of-speech field is a select control with common values such as noun, ve
 - Print the current list. Print CSS hides editing controls and mastered cards.
 - Empty phrase and sentence rows are automatically hidden.
 - Click a vocabulary card to load it into the left form, edit its fields, and save the existing record. Checkbox, delete, and other buttons do not trigger editing.
+
+### Independent entry modes
+
+The form has three modes. `word` stores a word with optional POS, meaning, phrases, and sentence. `phrase` stores the whole phrase in `word`, leaves POS empty, and allows meaning plus an optional example sentence. `sentence` stores the sentence in `word` and `sentence`, with POS, meaning, and phrase fields empty. Enter submits the active mode.
+
+### DeepSeek lookup proxy
+
+`server.py` serves the static app and exposes `POST /api/lookup`. Set `DEEPSEEK_API_KEY` in the shell, run `python3 server.py`, and open `http://127.0.0.1:8765/`. The browser never receives the key. This is an explicit fallback button for terms not handled by the local/public lookup path.
 
 ## 3. Vocabulary Data
 
@@ -69,6 +77,13 @@ docs/                       Cropped screenshot assets retained in the repository
 open "/Users/adele/Desktop/IELTS- vocabulary/index.html"
 ```
 
+For DeepSeek lookup:
+
+```bash
+cd "/Users/adele/Desktop/IELTS- vocabulary"
+DEEPSEEK_API_KEY="your_key" python3 server.py
+```
+
 For a local HTTP server, use any static server pointed at the project directory. The app does not require one, but HTTP hosting may make browser storage behavior more predictable across browsers.
 
 ## 6. Verification Completed
@@ -77,25 +92,21 @@ For a local HTTP server, use any static server pointed at the project directory.
 - `node --check ielts-dictionary.js` passed.
 - `node --check repo-ielts-dictionary.js` passed.
 - `node --check hf-ielts-dictionary.js` passed.
+- `python3 -m py_compile server.py` passed.
 - GitHub `main` branch contains the latest commit.
 - README and dictionary assets were checked through GitHub raw URLs during the session.
 - Working tree was clean after the last push.
 
 ## 7. Known Limitations
 
-1. The current form is optimized for adding a word with optional phrase and sentence fields. A dedicated mode for independently adding a phrase or sentence has not yet been implemented.
-2. Automatic topic/category classification has not yet been implemented.
-3. The imported dictionaries include examples and source metadata, but the current lookup form fills only part of speech and meaning automatically.
-4. Part-of-speech inference based on spelling endings is heuristic. Review `待确认` and combined values before relying on them.
-5. User records are browser-local. Clearing site data or switching browsers can make them unavailable.
-6. The public dictionary fallback requires network access and may be blocked by local network policy.
-7. The repository retains screenshot assets, but the README currently contains no image embeds by request.
+1. Automatic topic/category classification has not yet been implemented.
+2. The imported dictionaries include examples and source metadata, but the normal lookup form fills only part of speech and meaning automatically; DeepSeek can fill optional details on demand.
+3. Part-of-speech inference based on spelling endings is heuristic. Review `待确认` and combined values before relying on them.
+4. User records are browser-local. Clearing site data or switching browsers can make them unavailable.
+5. The public dictionary fallback and DeepSeek proxy require network access. DeepSeek also requires a user-owned API key.
+6. The repository retains screenshot assets, but the README currently contains no image embeds by request.
 
 ## 8. Recommended Next Work
-
-### P0: Independent phrase and sentence entries
-
-Add an entry-type selector (`单词`, `短语`, `句子`) to the form. For phrases, use the same local lookup and save the entry as `kind: "phrase"`; for sentences, skip lookup and save the sentence as `kind: "sentence"`.
 
 ### P1: Topic classification
 
