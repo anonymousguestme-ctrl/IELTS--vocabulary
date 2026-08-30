@@ -38,6 +38,7 @@
 .api-key-actions{display:flex;gap:8px;margin-top:8px}.api-key-actions button{border:1px solid #b9b3a7;background:transparent;color:var(--ink);padding:5px 9px;font:11px 'DM Mono',monospace;cursor:pointer}.api-key-actions button:hover{border-color:var(--accent);color:var(--accent)}
 .deepseek-settings{border:0;background:transparent;color:var(--muted);padding:0;font:10px 'DM Mono',monospace;cursor:pointer}.deepseek-settings:hover{color:var(--accent)}.deepseek-settings-panel{margin-top:4px}
 .clear-search{border:0;background:transparent;color:var(--muted);font-size:18px;line-height:1;padding:0 2px;cursor:pointer}.clear-search:hover{color:var(--accent)}
+.data-btn{border:1px solid var(--line);background:transparent;color:var(--muted);padding:0 10px;font:12px 'DM Sans';cursor:pointer}.data-btn:hover{border-color:var(--accent);color:var(--accent)}
 .word-title{padding-bottom:2px}
 .meaning-wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .meaning-wrap .meaning{margin-bottom:8px}
