@@ -13,4 +13,10 @@ echo "正在启动本地雅思词汇本..."
 open "http://127.0.0.1:8765/"
 echo "服务地址：http://127.0.0.1:8765/"
 echo "关闭此窗口即可停止服务。"
+
+if curl --silent --output /dev/null --max-time 1 http://127.0.0.1:8765/; then
+  echo "检测到 8765 端口已有服务，已直接打开现有页面，不重复启动。"
+  exit 0
+fi
+
 python3 server.py
