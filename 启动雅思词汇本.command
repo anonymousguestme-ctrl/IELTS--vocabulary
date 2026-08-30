@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-PROJECT_DIR="/Users/adele/Desktop/IELTS- vocabulary"
+PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$PROJECT_DIR" || exit 1
 
 if ! command -v python3 >/dev/null 2>&1; then

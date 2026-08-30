@@ -4,7 +4,7 @@
 
 - 项目名称：`IELTS Vocabulary Bench｜本地的雅思单词本`
 - GitHub：<https://github.com/anonymousguestme-ctrl/IELTS--vocabulary>
-- 本地路径：`/Users/adele/Desktop/IELTS- vocabulary`
+- 本地路径：项目所在的 `IELTS- vocabulary` 目录
 - 当前分支：`main`
 - 当前最新提交：`0ffc579 feat: add search clear button`
 
@@ -81,13 +81,13 @@ task_plan.md                原始计划
 只使用本地词库：
 
 ```bash
-open "/Users/adele/Desktop/IELTS- vocabulary/index.html"
+open "项目目录/IELTS- vocabulary/index.html"
 ```
 
 使用 DeepSeek 自动查询：
 
 ```bash
-cd "/Users/adele/Desktop/IELTS- vocabulary"
+cd "项目目录/IELTS- vocabulary"
 python3 server.py
 ```
 
@@ -139,7 +139,7 @@ python3 server.py
 
 ## 交接清单
 
-- [x] 桌面目录存在：`/Users/adele/Desktop/IELTS- vocabulary`
+- [x] 桌面目录存在：`IELTS- vocabulary`
 - [x] 远程仓库为 `anonymousguestme-ctrl/IELTS--vocabulary`
 - [x] 当前实现已推送到 `origin/main`
 - [x] README 不包含图片嵌入，查询逻辑包含文本流程图

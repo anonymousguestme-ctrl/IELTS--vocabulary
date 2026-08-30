@@ -1,5 +1,5 @@
 #!/bin/zsh
-PROJECT_DIR="/Users/adele/Desktop/IELTS- vocabulary"
+PROJECT_DIR="${HOME}/Desktop/IELTS- vocabulary"
 cd "$PROJECT_DIR" || exit 1
 if ! curl --silent --output /dev/null --max-time 1 http://127.0.0.1:8765/; then
   python3 server.py >/tmp/ielts-vocab-server.log 2>&1 &

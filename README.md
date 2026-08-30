@@ -41,7 +41,7 @@ GitHub：<https://github.com/anonymousguestme-ctrl/IELTS--vocabulary>
 推荐直接双击桌面上的：
 
 ```text
-/Users/adele/Desktop/雅思词汇本.app
+桌面上的 `雅思词汇本.app`
 ```
 
 应用会检查 `8765` 端口，启动或复用本地服务，然后打开：
@@ -96,7 +96,7 @@ http://127.0.0.1:8765/
 如果不希望保存在页面，也可以在终端使用环境变量：
 
 ```bash
-cd "/Users/adele/Desktop/IELTS- vocabulary"
+cd "你的项目目录/IELTS- vocabulary"
 DEEPSEEK_API_KEY="你的 API Key" python3 server.py
 ```
 
