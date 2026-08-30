@@ -6,7 +6,7 @@
 - GitHub：<https://github.com/anonymousguestme-ctrl/IELTS--vocabulary>
 - 本地路径：`/Users/adele/Desktop/IELTS- vocabulary`
 - 当前分支：`main`
-- 本次文档更新前最新功能提交：`3bd1cbc`
+- 当前最新提交：`0ffc579 feat: add search clear button`
 
 这是一个纯 HTML、CSS 和原生 JavaScript 的本地雅思词汇工具。直接打开 `index.html` 即可使用；DeepSeek 查询需要额外启动本地 `server.py`。
 
@@ -34,6 +34,7 @@
 - 空的短语和例句不会显示。
 - 打印时隐藏录入区、操作按钮和已掌握条目。
 - 点击卡片主体可回填到左侧表单进行编辑。
+- 搜索框右侧的 `×` 可以清空搜索内容并立即恢复当前筛选列表。
 
 ### DeepSeek
 
