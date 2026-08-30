@@ -74,7 +74,7 @@ task_plan.md                实现计划与验证记录
 
 当前内置数据来自以下两个本地来源：
 
-1. `/Users/adele/Desktop/雅思/语料库练习模板(剑19)-2025.7.6.xlsx`
+1. **雅思王听力语料库（剑19版）**：本地的《语料库练习模板(剑19)-2025.7.6.xlsx》整理文件
 2. [`fanhongtao/IELTS`](https://github.com/fanhongtao/IELTS) 中的 `IELTS Word List.txt`
 
 词库内容仅用于个人学习整理。原始资料的版权和准确性以其来源方为准；本项目不对词义、词性或完整性作考试保证。
