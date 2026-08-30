@@ -22,6 +22,7 @@ open index.html
 - 只打印待背内容，适合地铁上使用。
 - 学习记录保存在当前浏览器本地。
 - 点击词汇卡片可回填到左侧表单进行编辑，保存后直接更新原卡片。
+- 关联词汇可按行填写；卡片会显示关联词汇组，点击关联词即可筛选同组内容。
 
 ## 界面说明
 
@@ -61,7 +62,11 @@ open index.html
 
 词汇列表标题右侧的“隐藏释义”按钮会一次隐藏所有卡片的词性和中文释义。按钮变成“显示释义”后，再次点击即可恢复，适合先看英文回忆中文意思，再核对答案。
 
-### 6. 筛选和打印
+### 6. 关联词汇
+
+在录入区的“关联词汇”中每行填写一个词，或用逗号分隔。系统会为 `atmosphere`、`hydrosphere`、`lithosphere`、`biosphere` 等常见组自动建议关联项；你也可以覆盖建议。卡片中的关联词按钮用于快速筛选同组条目。
+
+### 7. 筛选和打印
 
 点击“不会”只显示还没有掌握的词，然后点击“打印当前清单”。打印样式会自动隐藏录入区、搜索区、操作按钮和已掌握词条。
 
@@ -76,7 +81,7 @@ open index.html
 
 ### DeepSeek 补全未收录内容
 
-DeepSeek 通过本地 `server.py` 代理调用。可以直接在左侧录入面板粘贴 API Key，点击“保存 Key”；Key 只保存在当前浏览器的 `localStorage`，不会提交到 GitHub。需要 Python 3 启动代理：
+DeepSeek 通过本地 `server.py` 代理调用。默认隐藏 API Key 设置，需要点击“DeepSeek 设置”展开；粘贴 Key 后点击“保存 Key”。Key 只保存在当前浏览器的 `localStorage`，不会提交到 GitHub。需要 Python 3 启动代理：
 
 ```bash
 cd "/Users/adele/Desktop/IELTS- vocabulary"
