@@ -57,6 +57,7 @@ index.html                  页面结构
 styles.css                  页面、响应式和打印样式
 app.js                      交互、查询、本地保存、筛选和关联组
 server.py                   本地静态服务器和 DeepSeek 代理
+启动雅思词汇本.command       macOS 双击启动脚本
 ielts-dictionary.js         Excel 提取的词库
 repo-ielts-dictionary.js    fanhongtao/IELTS 词库
 hf-ielts-dictionary.js      hefengxian/my-ielts 词库
@@ -82,6 +83,8 @@ python3 server.py
 ```
 
 然后打开 <http://127.0.0.1:8765/>，点击“DeepSeek 设置”保存 Key。也可以设置 `DEEPSEEK_API_KEY` 环境变量。
+
+在 macOS 中也可以直接双击项目目录里的 `启动雅思词汇本.command`。脚本会自动打开浏览器和本地服务；关闭随后打开的 Terminal 窗口即可停止服务。
 
 ## 已完成的验证
 
