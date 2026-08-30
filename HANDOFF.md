@@ -1,149 +1,138 @@
-# Handoff｜IELTS Vocabulary Bench
+# 项目交接文档｜本地的雅思单词本
 
-## 1. Project Identity
+## 项目身份
 
-- Project: `IELTS Vocabulary Bench｜本地的雅思单词本`
-- Repository: https://github.com/anonymousguestme-ctrl/IELTS--vocabulary
-- Local path: `/Users/adele/Desktop/IELTS- vocabulary`
-- Branch: `main`
-- Latest commit: `8859a48 fix: synchronize related vocabulary groups`
+- 项目名称：`IELTS Vocabulary Bench｜本地的雅思单词本`
+- GitHub：<https://github.com/anonymousguestme-ctrl/IELTS--vocabulary>
+- 本地路径：`/Users/adele/Desktop/IELTS- vocabulary`
+- 当前分支：`main`
+- 本次文档更新前最新功能提交：`3bd1cbc`
 
-This is a static IELTS vocabulary tracker with an optional local Python proxy for DeepSeek. It can still be opened directly from `index.html` for offline/local-dictionary use.
+这是一个纯 HTML、CSS 和原生 JavaScript 的本地雅思词汇工具。直接打开 `index.html` 即可使用；DeepSeek 查询需要额外启动本地 `server.py`。
 
-## 2. Delivered Features
+## 已完成的功能
 
-### Vocabulary records
+### 词汇记录
 
-Each record stores an English entry, part of speech, Chinese meaning, optional phrases, optional example sentence, and mastered status. New records and status changes are stored in browser `localStorage`.
+每条记录可以保存英文内容、词性、中文释义、可选短语、可选例句、关联词汇和掌握状态。新增内容、勾选状态和查询缓存保存在当前浏览器的 `localStorage` 中。
 
-### Offline lookup
+### 查询和录入逻辑
 
-Lookup order is local cache, the Excel-derived dictionary, the `fanhongtao/IELTS` dictionary, the `hefengxian/my-ielts` dictionary, and finally the public `dictionaryapi.dev` endpoint. Network lookup has a four-second timeout. Local hits work without internet.
+查询顺序为：浏览器缓存、本地 Excel 词库、两个 GitHub 词库、公开英文词典。公开词典请求最多等待 4 秒；失败后，如果页面已保存 DeepSeek Key，会自动调用 DeepSeek。
 
-### Part-of-speech control
+录入区有三种模式：单词显示词性和释义；短语 / 固定搭配不显示词性，可填写释义和例句；句子只保存句子，不查询词性、释义和常用短语。三种模式都支持 Enter 提交。
 
-The part-of-speech field is a select control with common values such as noun, verb, adjective, adverb, preposition, conjunction, phrase, combined parts of speech, other, and pending confirmation. Imported values that cannot be safely inferred are shown as `待确认`, not `IELTS 词汇`.
+### 关联词汇组
 
-### Review workflow
+每条记录有一个可选的 `related` 字段，使用换行分隔多个关联词。系统会自动建议 `atmosphere`、`hydrosphere`、`lithosphere`、`biosphere` 等词组。保存时，如果关联词已经存在于词库，会自动把关系补到双方；点击卡片上的关联词按钮可以筛选同组内容。
 
-- Filter by all, not mastered, or mastered.
-- Search by English entry, meaning, or phrase.
-- Mark a card mastered using its checkbox.
-- Use the global `隐藏释义` / `显示释义` button to self-test.
-- Print the current list. Print CSS hides editing controls and mastered cards.
-- Empty phrase and sentence rows are automatically hidden.
-- Click a vocabulary card to load it into the left form, edit its fields, and save the existing record. Checkbox, delete, and other buttons do not trigger editing.
+### 复习与打印
 
-### Independent entry modes
+- 按“全部 / 不会 / 会了”筛选。
+- 复选框标记已掌握词汇。
+- “隐藏释义”按钮一次隐藏全部词性和释义。
+- 空的短语和例句不会显示。
+- 打印时隐藏录入区、操作按钮和已掌握条目。
+- 点击卡片主体可回填到左侧表单进行编辑。
 
-The form has three modes. `word` stores a word with optional POS, meaning, phrases, and sentence. `phrase` stores the whole phrase in `word`, leaves POS empty, and allows meaning plus an optional example sentence. `sentence` stores the sentence in `word` and `sentence`, with POS, meaning, and phrase fields empty. Enter submits the active mode.
+### DeepSeek
 
-### Related vocabulary groups
+左侧默认只显示“DeepSeek 设置”按钮。展开后可以保存或清除 API Key。Key 保存在浏览器本地，不写入 GitHub；服务端也支持环境变量 `DEEPSEEK_API_KEY`，环境变量优先。
 
-Records have an optional `related` field containing newline-separated terms. The app suggests common groups such as `atmosphere`, `hydrosphere`, `lithosphere`, and `biosphere`. On submit, matching records are synchronized in both directions, and related chips on cards filter the list to the selected term.
+公开词典未找到词条时，已保存 Key 会触发自动 DeepSeek 查询，自动填入词性、中文释义、解释、短语和例句。页面上的手动按钮仍可用于重试。
 
-### DeepSeek lookup proxy
+## 内置词库
 
-`server.py` serves the static app and exposes `POST /api/lookup`. The page can save a key in browser `localStorage` and sends it only to this local proxy; an environment variable `DEEPSEEK_API_KEY` is also supported and takes priority. After the public dictionary times out or misses, a saved key triggers an automatic DeepSeek lookup; the button remains available for manual retry. A saved key is convenient but should be cleared on shared computers.
-
-## 3. Vocabulary Data
-
-The repository contains three static dictionary files:
-
-| File | Source | Approximate entries |
+| 文件 | 来源 | 约包含词条 |
 | --- | --- | ---: |
-| `ielts-dictionary.js` | Local `语料库练习模板(剑19)-2025.7.6.xlsx` | 5,222 |
-| `repo-ielts-dictionary.js` | `fanhongtao/IELTS` `IELTS Word List.txt` | 3,589 |
-| `hf-ielts-dictionary.js` | `hefengxian/my-ielts` vocabulary module | 3,697 |
+| `ielts-dictionary.js` | 本地《语料库练习模板(剑19)-2025.7.6.xlsx》 | 5,222 |
+| `repo-ielts-dictionary.js` | `fanhongtao/IELTS` 的 `IELTS Word List.txt` | 3,589 |
+| `hf-ielts-dictionary.js` | `hefengxian/my-ielts` 词汇模块 | 3,697 |
 
-The dictionaries are loaded before `app.js` in `index.html`. `app.js` merges them without replacing the curated entries in its small hand-maintained dictionary.
-
-## 4. File Map
+## 文件说明
 
 ```text
-index.html                  Static page markup
-styles.css                  Interface, responsive, and print styles
-app.js                      UI state, lookup, persistence, filtering, printing
-ielts-dictionary.js         Excel-derived dictionary
-repo-ielts-dictionary.js    fanhongtao/IELTS-derived dictionary
-hf-ielts-dictionary.js      hefengxian/my-ielts-derived dictionary
-README.md                   User-facing project documentation
-HANDOFF.md                  This engineering handoff
-notes.md                    Working notes
-task_plan.md                Original implementation plan
-screenshot.jpg              Original local screenshot asset (not referenced by README)
-docs/                       Cropped screenshot assets retained in the repository
+index.html                  页面结构
+styles.css                  页面、响应式和打印样式
+app.js                      交互、查询、本地保存、筛选和关联组
+server.py                   本地静态服务器和 DeepSeek 代理
+ielts-dictionary.js         Excel 提取的词库
+repo-ielts-dictionary.js    fanhongtao/IELTS 词库
+hf-ielts-dictionary.js      hefengxian/my-ielts 词库
+README.md                   项目使用说明
+HANDOFF.md                  中文工程交接文档
+notes.md                    工作笔记
+task_plan.md                原始计划
 ```
 
-## 5. How To Run
+## 运行方式
+
+只使用本地词库：
 
 ```bash
 open "/Users/adele/Desktop/IELTS- vocabulary/index.html"
 ```
 
-For DeepSeek lookup:
+使用 DeepSeek 自动查询：
 
 ```bash
 cd "/Users/adele/Desktop/IELTS- vocabulary"
 python3 server.py
 ```
 
-For a local HTTP server, use any static server pointed at the project directory. The app does not require one, but HTTP hosting may make browser storage behavior more predictable across browsers.
+然后打开 <http://127.0.0.1:8765/>，点击“DeepSeek 设置”保存 Key。也可以设置 `DEEPSEEK_API_KEY` 环境变量。
 
-## 6. Verification Completed
+## 已完成的验证
 
-- `node --check app.js` passed.
-- `node --check ielts-dictionary.js` passed.
-- `node --check repo-ielts-dictionary.js` passed.
-- `node --check hf-ielts-dictionary.js` passed.
-- `python3 -m py_compile server.py` passed.
-- Related-group rendering and reciprocal synchronization are implemented in `app.js`.
-- GitHub `main` branch contains the latest commit.
-- README and dictionary assets were checked through GitHub raw URLs during the session.
-- Working tree was clean after the last push.
+- `node --check app.js` 通过。
+- 三个词库 JavaScript 文件均通过语法检查。
+- `python3 -m py_compile server.py` 通过。
+- 本地服务器可以正常返回页面。
+- 未配置 Key 时接口返回明确错误；无效 Key 时返回认证错误。
+- 关联组渲染和双向同步代码已写入 `app.js`。
+- GitHub `main` 已与本地最新提交同步。
 
-## 7. Known Limitations
+## 当前限制
 
-1. Automatic topic/category classification has not yet been implemented.
-2. The imported dictionaries include examples and source metadata, but the normal lookup form fills only part of speech and meaning automatically; DeepSeek can fill optional details on demand.
-3. Part-of-speech inference based on spelling endings is heuristic. Review `待确认` and combined values before relying on them.
-4. User records are browser-local. Clearing site data or switching browsers can make them unavailable.
-5. The public dictionary fallback and DeepSeek proxy require network access. DeepSeek requires a user-owned API key, which may be stored locally in the browser or supplied as an environment variable.
-6. The repository retains screenshot assets, but the README currently contains no image embeds by request.
+1. 主题分类功能还没有实现。
+2. 词性推断基于词尾规则，属于启发式结果；显示“待确认”时应人工检查。
+3. 词库来源中的例句和主题字段没有全部自动展示。
+4. 学习记录只保存在当前浏览器，清除站点数据或更换浏览器后可能不可见。
+5. 公开词典和 DeepSeek 都需要网络；DeepSeek 需要用户自己的 API Key。
+6. API Key 保存在浏览器时不适合共享电脑，使用后应点击“清除”。
 
-## 8. Recommended Next Work
+## 后续建议
 
-### P1: Topic classification
+### P1：主题分类
 
-Add a `category` field and a category filter. Start with a small controlled vocabulary such as `电影影视`, `环境自然`, `教育学习`, `科技互联网`, `社会公共`, `健康生活`, `旅行交通`, `工作经济`, `文化艺术`, `科学医学`, `人物地点`, and `未分类`. Add keyword rules only after reviewing false matches.
+增加 `category` 字段和分类筛选，先从环境、教育、科技、社会、健康、旅行、工作、文化等有限分类开始。
 
-### P1: Import/export
+### P1：导入导出
 
-Add JSON export and import so browser-local records can be backed up and moved to another device.
+增加 JSON 导入和导出，便于备份浏览器本地学习记录并迁移到其他设备。
 
-### P2: Better source mapping
+### P2：丰富词库字段
 
-Preserve the source repository's topic, example, and extra fields in the card model, then expose them as optional card details instead of discarding them during lookup.
+保留词库来源中的主题、例句和补充字段，并在卡片中作为可选详情显示。
 
-## 9. Change History
+## 关键提交记录
 
-- `febf668` initial offline vocabulary bench
-- `b80c813` per-card definition toggle (later replaced by global toggle)
-- `1806a60` README title and screenshot
-- `ee4ce0a` global definition toggle and aligned card layout
-- `36fbf34` hefengxian/my-ielts vocabulary source
-- `f3ea36e` remove README image embeds
-- `a1e62dc` normalize imported parts of speech
-- `a9ae1be` add part-of-speech selector
-- `a68b204` add vocabulary card editing
-- `fd9953e` add related vocabulary groups and hide DeepSeek settings
-- `8859a48` synchronize related vocabulary records in both directions
+- `febf668` 初始离线词汇本
+- `ee4ce0a` 全局隐藏释义和卡片对齐
+- `36fbf34` 接入 hefengxian/my-ielts 词库
+- `a1e62dc` 修正导入词性的通用映射
+- `a9ae1be` 增加词性选择器
+- `a68b204` 增加卡片编辑
+- `c4a7f45` 支持页面保存 DeepSeek Key
+- `fd9953e` 增加关联词汇组和隐藏设置
+- `8859a48` 增加关联词双向同步
+- `3bd1cbc` 公开词典失败后自动调用 DeepSeek
 
-## 10. Handoff Checklist
+## 交接清单
 
-- [x] Desktop copy exists at `/Users/adele/Desktop/IELTS- vocabulary`.
-- [x] Remote `origin` points to `anonymousguestme-ctrl/IELTS--vocabulary`.
-- [x] Latest local commit is pushed to `origin/main`.
-- [x] README has been updated without image embeds.
-- [x] Dictionary files are loaded by the page.
-- [x] Current limitations are documented above.
+- [x] 桌面目录存在：`/Users/adele/Desktop/IELTS- vocabulary`
+- [x] 远程仓库为 `anonymousguestme-ctrl/IELTS--vocabulary`
+- [x] 当前实现已推送到 `origin/main`
+- [x] README 不包含图片嵌入，查询逻辑包含文本流程图
+- [x] 三个离线词库已由页面加载
+- [x] 中文交接文档已更新
