@@ -87,10 +87,6 @@ http://127.0.0.1:8765/
 - 搜索框右侧 `×` 清空搜索内容。
 - 打印时隐藏录入区、按钮和已掌握条目。
 
-### 近义词程度比较
-
-目前内置灾难词组比较：`disastrous`、`catastrophic`、`calamity`。卡片会提示严重程度、词性和使用区别：前两个是形容词，`calamity` 是名词，不能直接互换。
-
 ## DeepSeek 设置
 
 点击左侧“DeepSeek 设置”，粘贴 API Key 并点击“保存 Key”。Key 只保存于当前浏览器的 `localStorage`，不会写进代码或 GitHub。使用共享电脑后请点击“清除”。

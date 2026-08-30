@@ -47,7 +47,7 @@
 .details-hidden .pos,.details-hidden .meaning{visibility:hidden}
 .details-hidden .meaning-wrap{min-height:32px}
 .related{display:grid;grid-template-columns:75px 1fr;gap:4px;margin-top:10px;font-size:13px;color:var(--muted)}.related b{font:10px 'DM Mono',monospace;color:#9a968d;letter-spacing:.5px}.related-chip{border:0;background:var(--soft);color:var(--ink);padding:3px 7px;margin:0 5px 4px 0;font:12px 'DM Sans';cursor:pointer}.related-chip:hover{background:var(--accent);color:white}
-.category-tag{display:inline-block;margin-top:9px;padding:3px 7px;background:var(--soft);color:var(--muted);font:11px 'DM Mono',monospace}
+.category-tag{display:inline-flex;align-items:center;gap:4px;margin-top:9px;padding:4px 8px;background:#f0ebe2;border:1px solid #d6cfc2;border-radius:3px;color:var(--muted);font:11px 'DM Mono',monospace}.category-tag:before{content:'🏷️';font-family:system-ui;font-size:12px}
 .category-tag + .category-tag{display:none}
 .synonym-compare{display:none}
 .add-panel{position:sticky;top:20px}.list-panel{max-height:calc(100vh - 40px);overflow:auto;padding-right:8px}
