@@ -16,6 +16,7 @@ open index.html
 - 本地离线词库自动匹配词性和中文释义。
 - 约 1.2 万个内置词条，覆盖雅思听力、学术和场景词汇。
 - 额外接入 `hefengxian/my-ielts` 的 3697 个带词性、释义和例句的词条。
+- 接入 `LynnShaw/vocabulary_for_ielts` 的 3589 个带章节分类的词条，分类来自其 `title` 字段。
 - 词性、释义可修改；短语和例句可以留空。
 - 一键隐藏全部词性和释义，适合先回忆再核对。
 - 勾选“已掌握”，按“全部 / 不会 / 会了”筛选。
@@ -155,6 +156,7 @@ app.js                      交互、本地保存、查询和筛选
 ielts-dictionary.js         Excel 提取的离线词库
 repo-ielts-dictionary.js    GitHub IELTS Word List 提取的词库
  hf-ielts-dictionary.js      hefengxian/my-ielts 提取的词库
+lynn-ielts-dictionary.js     LynnShaw 雅思真经章节词库
 server.py                    本地静态服务器和 DeepSeek 查询代理
 ```
 
