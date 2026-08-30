@@ -1,7 +1,5 @@
 # IELTS Vocabulary Bench｜本地的雅思单词本
 
-<p align="center"><img src="screenshot.jpg" alt="本地雅思单词本主界面" width="920"></p>
-
 一个面向中文学习者的本地雅思词汇本：把不会的单词、短语和句子放进来，标记掌握状态，再打印成通勤复习清单。
 
 ## 在线使用
@@ -29,13 +27,9 @@ open index.html
 
 顶部是总词汇、待背、已掌握和掌握进度；中部是筛选、搜索和打印；下方左侧录入，右侧展示词汇卡片。
 
-<p align="center"><img src="docs/overview.jpg" alt="主界面总览" width="920"></p>
-
 ### 2. 添加单词
 
 在录入区输入英文单词，离开输入框后会优先从本地词库匹配。匹配结果会填入词性和中文释义，可以直接修改。
-
-<p align="center"><img src="docs/add-panel.jpg" alt="添加词汇面板" width="720"></p>
 
 | 字段 | 说明 | 必填 |
 | --- | --- | --- |
@@ -53,8 +47,6 @@ open index.html
 
 每张卡片把英文词、词性和中文释义排在同一信息带中，下面再显示已有的短语和例句。卡片左侧复选框用于标记掌握状态。
 
-<p align="center"><img src="docs/vocabulary-list.jpg" alt="词汇卡片列表" width="920"></p>
-
 阅读顺序：英文词汇 → 词性 → 中文释义 → 短语（有内容才显示）→ 例句（有内容才显示）。
 
 ### 5. 一键隐藏释义
@@ -64,8 +56,6 @@ open index.html
 ### 6. 筛选和打印
 
 点击“不会”只显示还没有掌握的词，然后点击“打印当前清单”。打印样式会自动隐藏录入区、搜索区、操作按钮和已掌握词条。
-
-<p align="center"><img src="docs/filter-print.jpg" alt="筛选和打印工具栏" width="920"></p>
 
 1. 点击“不会”。
 2. 用搜索框缩小到某一主题或章节（可选）。
@@ -97,8 +87,6 @@ styles.css                  页面样式和打印样式
 app.js                      交互、本地保存、查询和筛选
 ielts-dictionary.js         Excel 提取的离线词库
 repo-ielts-dictionary.js    GitHub IELTS Word List 提取的词库
-screenshot.jpg              主界面展示图
-docs/                       README 各模块截图
 ```
 
 ## 技术说明
