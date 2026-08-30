@@ -16,11 +16,21 @@ class Handler(SimpleHTTPRequestHandler):
             return
         key = os.environ.get("DEEPSEEK_API_KEY")
         if not key:
-            self.send_json(503, {"error": "DEEPSEEK_API_KEY is not configured"})
+            try:
+                length = int(self.headers.get("Content-Length", "0"))
+                body = json.loads(self.rfile.read(length))
+            except (ValueError, json.JSONDecodeError):
+                body = {}
+            key = str(body.get("key", "")).strip()
+        else:
+            body = None
+        if not key:
+            self.send_json(503, {"error": "DeepSeek API Key is not configured"})
             return
         try:
-            length = int(self.headers.get("Content-Length", "0"))
-            body = json.loads(self.rfile.read(length))
+            if body is None:
+                length = int(self.headers.get("Content-Length", "0"))
+                body = json.loads(self.rfile.read(length))
             term = str(body.get("word", "")).strip()
             if not term:
                 self.send_json(400, {"error": "word is required"})

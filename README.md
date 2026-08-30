@@ -76,14 +76,14 @@ open index.html
 
 ### DeepSeek 补全未收录内容
 
-DeepSeek 通过本地 `server.py` 代理调用，API Key 不会写入前端或提交到 GitHub。需要 Python 3：
+DeepSeek 通过本地 `server.py` 代理调用。可以直接在左侧录入面板粘贴 API Key，点击“保存 Key”；Key 只保存在当前浏览器的 `localStorage`，不会提交到 GitHub。需要 Python 3 启动代理：
 
 ```bash
 cd "/Users/adele/Desktop/IELTS- vocabulary"
-DEEPSEEK_API_KEY="你的 DeepSeek API Key" python3 server.py
+python3 server.py
 ```
 
-然后打开 `http://127.0.0.1:8765/`，在单词或短语模式点击“用 DeepSeek 查询未收录词”。句子模式不会调用 DeepSeek。
+然后打开 `http://127.0.0.1:8765/`，保存 Key 后，在单词或短语模式点击“用 DeepSeek 查询未收录词”。也可以使用环境变量 `DEEPSEEK_API_KEY`，环境变量优先于页面输入。句子模式不会调用 DeepSeek。保存 Key 会提升便利性，但不适合在共享电脑上使用，离开设备前可点击“清除”。
 
 ## 数据与隐私
 

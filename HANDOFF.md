@@ -40,7 +40,7 @@ The form has three modes. `word` stores a word with optional POS, meaning, phras
 
 ### DeepSeek lookup proxy
 
-`server.py` serves the static app and exposes `POST /api/lookup`. Set `DEEPSEEK_API_KEY` in the shell, run `python3 server.py`, and open `http://127.0.0.1:8765/`. The browser never receives the key. This is an explicit fallback button for terms not handled by the local/public lookup path.
+`server.py` serves the static app and exposes `POST /api/lookup`. The page can save a key in browser `localStorage` and sends it only to this local proxy; an environment variable `DEEPSEEK_API_KEY` is also supported and takes priority. Run `python3 server.py`, open `http://127.0.0.1:8765/`, save the key in the form, then use the explicit fallback button. A saved key is convenient but should be cleared on shared computers.
 
 ## 3. Vocabulary Data
 
@@ -81,7 +81,7 @@ For DeepSeek lookup:
 
 ```bash
 cd "/Users/adele/Desktop/IELTS- vocabulary"
-DEEPSEEK_API_KEY="your_key" python3 server.py
+python3 server.py
 ```
 
 For a local HTTP server, use any static server pointed at the project directory. The app does not require one, but HTTP hosting may make browser storage behavior more predictable across browsers.
@@ -103,7 +103,7 @@ For a local HTTP server, use any static server pointed at the project directory.
 2. The imported dictionaries include examples and source metadata, but the normal lookup form fills only part of speech and meaning automatically; DeepSeek can fill optional details on demand.
 3. Part-of-speech inference based on spelling endings is heuristic. Review `待确认` and combined values before relying on them.
 4. User records are browser-local. Clearing site data or switching browsers can make them unavailable.
-5. The public dictionary fallback and DeepSeek proxy require network access. DeepSeek also requires a user-owned API key.
+5. The public dictionary fallback and DeepSeek proxy require network access. DeepSeek requires a user-owned API key, which may be stored locally in the browser or supplied as an environment variable.
 6. The repository retains screenshot assets, but the README currently contains no image embeds by request.
 
 ## 8. Recommended Next Work
