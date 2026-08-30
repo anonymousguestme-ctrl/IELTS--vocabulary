@@ -28,7 +28,3 @@
 🌿 不用注册，不用登录，不用打卡，也不用分享进度。
 
 🧠 就是安安静静地，把不会的词留下来，整理好，再带走复习。
-
-🔗 GitHub：
-
-https://github.com/anonymousguestme-ctrl/IELTS--vocabulary

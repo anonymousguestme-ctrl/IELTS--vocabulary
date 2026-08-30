@@ -18,6 +18,6 @@ Create a self-contained vocabulary tracker for recording unfamiliar IELTS words,
 **Complete** - Windows launcher, operating-system navigation, product copy, and GitHub publication verified.
 
 ## Verification
-- `node --check /Users/adele/ielts-vocab/app.js` passed.
+- `node --check app.js` passed.
 - Print stylesheet hides editing controls and mastered cards, leaving a compact study sheet.
-- No existing files outside `/Users/adele/ielts-vocab/` were changed.
+- The project remains self-contained; no user-specific absolute path is required by the macOS launcher.
