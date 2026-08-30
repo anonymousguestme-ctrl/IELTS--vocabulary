@@ -6,7 +6,7 @@
 - Repository: https://github.com/anonymousguestme-ctrl/IELTS--vocabulary
 - Local path: `/Users/adele/Desktop/IELTS- vocabulary`
 - Branch: `main`
-- Latest commit: pending (entry modes and DeepSeek proxy are currently uncommitted)
+- Latest commit: `531cb92 feat: add independent entry modes and DeepSeek lookup`
 
 This is a static IELTS vocabulary tracker with an optional local Python proxy for DeepSeek. It can still be opened directly from `index.html` for offline/local-dictionary use.
 
