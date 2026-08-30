@@ -62,3 +62,42 @@
 @media print{.reveal-btn{display:none!important}.details-hidden .pos,.details-hidden .meaning{visibility:visible}}
 .detail b:first-child + span{font-size:15px;line-height:1.55;color:var(--ink)}
 .related-chip{font-size:14px;padding:4px 9px}
+@media(max-width:760px){
+  .shell{width:100%;max-width:none;padding:0 16px;overflow:hidden}
+  .topbar{height:64px}
+  .brand{font-size:11px;letter-spacing:1.2px}
+  .topbar-note{font-size:9px;white-space:nowrap}
+  .intro{padding:42px 0 30px;max-width:none}
+  h1{font-size:clamp(40px,13vw,58px);line-height:1.04;letter-spacing:0}
+  .intro p{font-size:15px;max-width:100%}
+  .stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:21px 0}
+  .stat strong{font-size:28px}
+  .progress-wrap{grid-column:1/-1;max-width:none;margin-top:8px}
+  .workspace{padding:28px 0 56px;min-width:0}
+  .toolbar{gap:14px;margin-bottom:18px}
+  .tabs{width:100%;overflow-x:auto;padding-bottom:2px}
+  .tab{white-space:nowrap;padding:8px 10px}
+  .toolbar-actions{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:7px;width:100%;min-width:0}
+  .search{min-width:0;width:100%}
+  .search input{width:100%;min-width:0;font-size:13px}
+  .print-btn{grid-column:1/-1;min-height:40px}
+  .content-grid{display:flex;flex-direction:column;gap:28px;min-width:0}
+  .add-panel,.list-panel{width:100%;min-width:0}
+  .add-panel{position:static;height:auto;padding:22px 18px}
+  .list-panel{height:auto;max-height:none;overflow:visible;padding-right:0}
+  .word-card{grid-template-columns:24px minmax(0,1fr) auto;gap:10px;padding:24px 2px;min-width:0}
+  .word-main{display:flex;flex-direction:column;min-width:0}
+  .word-title{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .word-title h3{font-size:24px;line-height:1.2}
+  .word-title .pos{font-size:11px}
+  .meaning-wrap{margin-top:7px;padding:0;align-items:baseline;gap:8px}
+  .meaning-wrap .meaning{font-size:16px;line-height:1.45;margin:0}
+  .detail{grid-template-columns:64px minmax(0,1fr);gap:5px;margin-top:14px;font-size:13px;line-height:1.55}
+  .detail span{min-width:0;overflow-wrap:anywhere}
+  .detail b{font-size:10px}
+  .related{grid-template-columns:64px minmax(0,1fr);gap:5px;font-size:13px;line-height:1.55}
+  .related-chip{font-size:14px;padding:5px 9px;margin-right:4px}
+  .category-tag{order:-1;align-self:flex-start;margin-top:0;margin-bottom:8px}
+  .card-actions{gap:2px}
+  footer{font-size:9px}
+}
