@@ -7,5 +7,6 @@
 <key>CFBundleIdentifier</key><string>local.wordbench.ielts</string>
 <key>CFBundleName</key><string>雅思词汇本</string>
 <key>CFBundlePackageType</key><string>APPL</string>
+<key>LSUIElement</key><true/>
 <key>CFBundleVersion</key><string>1.0</string>
 </dict></plist>
