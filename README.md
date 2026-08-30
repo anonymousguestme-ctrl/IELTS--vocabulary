@@ -155,7 +155,6 @@ hf-ielts-dictionary.js      my-ielts 词库
 lynn-ielts-dictionary.js    雅思真经章节词库
 docs/related-vocabulary.jpg README 展示截图
 README.md                   项目说明
-HANDOFF.md                  中文工程交接文档
 ```
 
 ## 开发检查
