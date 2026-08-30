@@ -23,3 +23,11 @@
 .meaning{font-size:16px}
 .detail{font-size:14px}
 .detail b{font-size:11px}
+.word-title{padding-bottom:2px}
+.meaning-wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.meaning-wrap .meaning{margin-bottom:8px}
+.reveal-btn{border:1px solid var(--line);background:transparent;color:var(--muted);padding:5px 9px;font:11px 'DM Mono',monospace;cursor:pointer}
+.reveal-btn:hover{border-color:var(--accent);color:var(--accent)}
+.details-hidden .pos,.details-hidden .meaning{visibility:hidden}
+.details-hidden .meaning-wrap{min-height:32px}
+@media print{.reveal-btn{display:none!important}.details-hidden .pos,.details-hidden .meaning{visibility:visible}}
