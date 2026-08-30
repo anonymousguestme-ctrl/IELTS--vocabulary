@@ -6,7 +6,7 @@
 - Repository: https://github.com/anonymousguestme-ctrl/IELTS--vocabulary
 - Local path: `/Users/adele/Desktop/IELTS- vocabulary`
 - Branch: `main`
-- Latest commit: `531cb92 feat: add independent entry modes and DeepSeek lookup`
+- Latest commit: `8859a48 fix: synchronize related vocabulary groups`
 
 This is a static IELTS vocabulary tracker with an optional local Python proxy for DeepSeek. It can still be opened directly from `index.html` for offline/local-dictionary use.
 
@@ -37,6 +37,10 @@ The part-of-speech field is a select control with common values such as noun, ve
 ### Independent entry modes
 
 The form has three modes. `word` stores a word with optional POS, meaning, phrases, and sentence. `phrase` stores the whole phrase in `word`, leaves POS empty, and allows meaning plus an optional example sentence. `sentence` stores the sentence in `word` and `sentence`, with POS, meaning, and phrase fields empty. Enter submits the active mode.
+
+### Related vocabulary groups
+
+Records have an optional `related` field containing newline-separated terms. The app suggests common groups such as `atmosphere`, `hydrosphere`, `lithosphere`, and `biosphere`. On submit, matching records are synchronized in both directions, and related chips on cards filter the list to the selected term.
 
 ### DeepSeek lookup proxy
 
@@ -93,6 +97,7 @@ For a local HTTP server, use any static server pointed at the project directory.
 - `node --check repo-ielts-dictionary.js` passed.
 - `node --check hf-ielts-dictionary.js` passed.
 - `python3 -m py_compile server.py` passed.
+- Related-group rendering and reciprocal synchronization are implemented in `app.js`.
 - GitHub `main` branch contains the latest commit.
 - README and dictionary assets were checked through GitHub raw URLs during the session.
 - Working tree was clean after the last push.
@@ -131,6 +136,8 @@ Preserve the source repository's topic, example, and extra fields in the card mo
 - `a1e62dc` normalize imported parts of speech
 - `a9ae1be` add part-of-speech selector
 - `a68b204` add vocabulary card editing
+- `fd9953e` add related vocabulary groups and hide DeepSeek settings
+- `8859a48` synchronize related vocabulary records in both directions
 
 ## 10. Handoff Checklist
 
