@@ -26,6 +26,12 @@
 .list-head-actions{display:flex;align-items:center;gap:14px}.hide-all-btn{border:1px solid var(--line);background:transparent;color:var(--muted);padding:7px 10px;font:11px 'DM Mono',monospace;cursor:pointer}.hide-all-btn:hover{border-color:var(--accent);color:var(--accent)}
 .word-main{display:grid;grid-template-columns:auto auto 1fr;column-gap:12px;align-items:baseline}.word-title{display:contents}.word-title h3{grid-column:1}.word-title .pos{grid-column:2;margin-left:0}.meaning-wrap{grid-column:3;grid-row:1;display:block}.meaning-wrap .meaning{display:inline;margin:0}.meaning-wrap .reveal-btn{display:none}.detail{grid-column:1/-1;margin-top:8px}.definitions-hidden .pos,.definitions-hidden .meaning{visibility:hidden}
 @media(max-width:760px){.word-main{grid-template-columns:auto 1fr}.word-title .pos{grid-column:2}.meaning-wrap{grid-column:1/-1;grid-row:2;margin-top:5px}.detail{grid-row:3}}
+.word-card{gap:24px;padding:30px 8px}
+.word-main{grid-template-columns:minmax(190px,220px) 130px minmax(0,1fr);column-gap:18px}
+.word-title .pos{text-align:center}
+.meaning-wrap{padding-left:12px}
+.detail{margin-top:14px}
+@media(max-width:760px){.word-card{padding:24px 4px;gap:12px}.word-main{grid-template-columns:auto 1fr;column-gap:10px}.word-title .pos{text-align:left}.meaning-wrap{padding-left:0;margin-top:7px}.detail{margin-top:10px}}
 .word-title{padding-bottom:2px}
 .meaning-wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .meaning-wrap .meaning{margin-bottom:8px}
