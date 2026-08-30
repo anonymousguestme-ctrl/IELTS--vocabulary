@@ -6,7 +6,7 @@
 - Repository: https://github.com/anonymousguestme-ctrl/IELTS--vocabulary
 - Local path: `/Users/adele/Desktop/IELTS- vocabulary`
 - Branch: `main`
-- Latest commit: `a9ae1be feat: add part of speech selector`
+- Latest commit: `a68b204 feat: edit vocabulary cards`
 
 This is a static, browser-only IELTS vocabulary tracker. It can be opened directly from `index.html`; no package manager, build step, backend, or account is required.
 
@@ -32,6 +32,7 @@ The part-of-speech field is a select control with common values such as noun, ve
 - Use the global `隐藏释义` / `显示释义` button to self-test.
 - Print the current list. Print CSS hides editing controls and mastered cards.
 - Empty phrase and sentence rows are automatically hidden.
+- Click a vocabulary card to load it into the left form, edit its fields, and save the existing record. Checkbox, delete, and other buttons do not trigger editing.
 
 ## 3. Vocabulary Data
 
@@ -118,6 +119,7 @@ Preserve the source repository's topic, example, and extra fields in the card mo
 - `f3ea36e` remove README image embeds
 - `a1e62dc` normalize imported parts of speech
 - `a9ae1be` add part-of-speech selector
+- `a68b204` add vocabulary card editing
 
 ## 10. Handoff Checklist
 
