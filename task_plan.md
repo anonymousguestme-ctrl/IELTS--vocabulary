@@ -8,14 +8,14 @@ Create a self-contained vocabulary tracker for recording unfamiliar IELTS words,
 - [x] Phase 2: Build interface and interactions
 - [x] Phase 3: Verify core flows and print styling
 - [x] Phase 4: Add Windows launcher and platform navigation
-- [ ] Phase 5: Verify cross-platform entry points and publish documentation
+- [x] Phase 5: Verify cross-platform entry points and publish documentation
 
 ## Decisions Made
 - Use a standalone static app so it can be opened directly without installing dependencies.
 - Store words in localStorage; ship with a small IELTS starter set as editable examples.
 
 ## Status
-**Currently in Phase 5** - Windows launcher and operating-system navigation added; preparing cross-platform checks and GitHub update.
+**Complete** - Windows launcher, operating-system navigation, product copy, and GitHub publication verified.
 
 ## Verification
 - `node --check /Users/adele/ielts-vocab/app.js` passed.
