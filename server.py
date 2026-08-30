@@ -39,7 +39,8 @@ class Handler(SimpleHTTPRequestHandler):
                 "Return JSON only with keys pos, meaning, phrase, sentence. "
                 "You are an IELTS vocabulary tutor. For the English word or phrase "
                 f"{term!r}, give concise Chinese meaning, standard part of speech, "
-                "up to three useful collocations as an array, and one natural English "
+                "up to three useful collocations as an array of objects with keys text and meaning, "
+                "where meaning is concise Chinese; and one natural English "
                 "example sentence. Use an empty array/string when unavailable."
             )
             payload = json.dumps({
@@ -53,7 +54,13 @@ class Handler(SimpleHTTPRequestHandler):
             with urlopen(req, timeout=20) as response:
                 result = json.loads(response.read())
             content = result["choices"][0]["message"]["content"]
-            self.send_json(200, json.loads(content))
+            answer = json.loads(content)
+            if isinstance(answer.get("phrase"), list):
+                answer["phrase"] = [
+                    item if isinstance(item, str) else f"{item.get('text', '')}｜{item.get('meaning', '')}".rstrip('｜')
+                    for item in answer["phrase"]
+                ]
+            self.send_json(200, answer)
         except Exception as exc:
             self.send_json(502, {"error": str(exc)})
 
