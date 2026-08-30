@@ -44,7 +44,7 @@ Records have an optional `related` field containing newline-separated terms. The
 
 ### DeepSeek lookup proxy
 
-`server.py` serves the static app and exposes `POST /api/lookup`. The page can save a key in browser `localStorage` and sends it only to this local proxy; an environment variable `DEEPSEEK_API_KEY` is also supported and takes priority. Run `python3 server.py`, open `http://127.0.0.1:8765/`, save the key in the form, then use the explicit fallback button. A saved key is convenient but should be cleared on shared computers.
+`server.py` serves the static app and exposes `POST /api/lookup`. The page can save a key in browser `localStorage` and sends it only to this local proxy; an environment variable `DEEPSEEK_API_KEY` is also supported and takes priority. After the public dictionary times out or misses, a saved key triggers an automatic DeepSeek lookup; the button remains available for manual retry. A saved key is convenient but should be cleared on shared computers.
 
 ## 3. Vocabulary Data
 
