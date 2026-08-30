@@ -43,7 +43,9 @@
         <div class="content-grid">
           <form class="add-panel" id="wordForm">
             <div class="panel-head"><div><div class="eyebrow">ADD A WORD</div><h2 id="formTitle">记下一颗新词</h2></div><span class="plus">＋</span></div>
-            <label>单词 <input name="word" required id="wordInput" placeholder="例如：substantial" /><small id="lookupStatus">输入后自动查询词性和释义</small></label>
+            <div class="entry-modes" role="tablist"><button type="button" class="entry-mode active" data-kind="word">单词</button><button type="button" class="entry-mode" data-kind="phrase">短语 / 固定搭配</button><button type="button" class="entry-mode" data-kind="sentence">句子</button></div>
+            <input type="hidden" name="kind" id="entryKind" value="word" />
+            <label><span id="termLabel">单词</span> <input name="word" required id="wordInput" placeholder="例如：substantial" /><small id="lookupStatus">输入后自动查询词性和释义</small></label>
             <div class="two-col"><label>词性 <select name="pos" id="posInput"><option value="">自动匹配</option><option>n. 名词</option><option>v. 动词</option><option>adj. 形容词</option><option>adv. 副词</option><option>prep. 介词</option><option>conj. 连词</option><option>phr. 短语</option><option>n. 名词 / v. 动词</option><option>n. 名词 / adj. 形容词</option><option>v. 动词 / adj. 形容词</option><option>其他</option><option>待确认</option></select></label><label>释义 <input name="meaning" id="meaningInput" placeholder="自动匹配，可手动修改" /></label></div>
             <label>常用短语 <textarea name="phrase" rows="2" placeholder="可选：每行一个短语"></textarea></label>
             <label>例句 <textarea name="sentence" rows="3" placeholder="可选：写下一个能让你记住它的句子"></textarea></label>
