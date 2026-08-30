@@ -1,4 +1,10 @@
-# IELTS Vocabulary Bench
+# IELTS Vocabulary Bench｜本地的雅思单词本
+
+<p align="center">
+  <img src="screenshot.jpg" alt="本地雅思单词本界面展示" width="920">
+</p>
+
+这是一个面向中文学习者的本地雅思词汇本：把不会的单词、短语和句子放进来，随时标记掌握状态，并打印成通勤复习清单。
 
 一个无需安装、无需后端的 IELTS 词汇记录与打印工具。
 
