@@ -3,6 +3,6 @@ PROJECT_DIR="/Users/adele/Desktop/IELTS- vocabulary"
 cd "$PROJECT_DIR" || exit 1
 if ! curl --silent --output /dev/null --max-time 1 http://127.0.0.1:8765/; then
   python3 server.py >/tmp/ielts-vocab-server.log 2>&1 &
-  sleep 1
+  until curl --silent --output /dev/null --max-time 1 http://127.0.0.1:8765/; do sleep 0.2; done
 fi
 open "http://127.0.0.1:8765/"

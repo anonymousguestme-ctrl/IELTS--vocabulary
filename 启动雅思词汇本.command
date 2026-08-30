@@ -10,13 +10,17 @@ if ! command -v python3 >/dev/null 2>&1; then
 fi
 
 echo "正在启动本地雅思词汇本..."
-open "http://127.0.0.1:8765/"
 echo "服务地址：http://127.0.0.1:8765/"
-echo "关闭此窗口即可停止服务。"
 
 if curl --silent --output /dev/null --max-time 1 http://127.0.0.1:8765/; then
   echo "检测到 8765 端口已有服务，已直接打开现有页面，不重复启动。"
-  exit 0
+else
+  python3 server.py &
+  server_pid=$!
+  trap 'kill $server_pid 2>/dev/null || true' EXIT
+  until curl --silent --output /dev/null --max-time 1 http://127.0.0.1:8765/; do sleep 0.2; done
 fi
 
-python3 server.py
+open "http://127.0.0.1:8765/"
+echo "关闭此窗口即可停止服务。"
+wait $server_pid 2>/dev/null
