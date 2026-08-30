@@ -46,4 +46,5 @@
 .details-hidden .pos,.details-hidden .meaning{visibility:hidden}
 .details-hidden .meaning-wrap{min-height:32px}
 .related{display:grid;grid-template-columns:75px 1fr;gap:4px;margin-top:10px;font-size:13px;color:var(--muted)}.related b{font:10px 'DM Mono',monospace;color:#9a968d;letter-spacing:.5px}.related-chip{border:0;background:var(--soft);color:var(--ink);padding:3px 7px;margin:0 5px 4px 0;font:12px 'DM Sans';cursor:pointer}.related-chip:hover{background:var(--accent);color:white}
+.category-tag{display:inline-block;margin-top:9px;padding:3px 7px;background:var(--soft);color:var(--muted);font:11px 'DM Mono',monospace}
 @media print{.reveal-btn{display:none!important}.details-hidden .pos,.details-hidden .meaning{visibility:visible}}
