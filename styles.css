@@ -60,3 +60,5 @@
 @media(max-width:760px){.synonym-scale{display:grid;grid-template-columns:1fr}.synonym-item{grid-template-columns:auto 1fr}.synonym-item span,.synonym-item small{grid-column:2}}
 @media(max-width:760px){.add-panel{position:static}.list-panel{max-height:none;overflow:visible;padding-right:0}}
 @media print{.reveal-btn{display:none!important}.details-hidden .pos,.details-hidden .meaning{visibility:visible}}
+.detail b:first-child + span{font-size:15px;line-height:1.55;color:var(--ink)}
+.related-chip{font-size:14px;padding:4px 9px}
