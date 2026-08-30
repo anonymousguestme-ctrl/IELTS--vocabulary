@@ -14,7 +14,8 @@ open index.html
 
 - 雅思单词、短语、句子分开记录。
 - 本地离线词库自动匹配词性和中文释义。
-- 约 8800 个内置词条，覆盖雅思听力、学术和场景词汇。
+- 约 1.2 万个内置词条，覆盖雅思听力、学术和场景词汇。
+- 额外接入 `hefengxian/my-ielts` 的 3697 个带词性、释义和例句的词条。
 - 词性、释义可修改；短语和例句可以留空。
 - 一键隐藏全部词性和释义，适合先回忆再核对。
 - 勾选“已掌握”，按“全部 / 不会 / 会了”筛选。
@@ -76,6 +77,7 @@ open index.html
 
 1. **雅思王听力语料库（剑19版）**：本地的《语料库练习模板(剑19)-2025.7.6.xlsx》整理文件。
 2. [`fanhongtao/IELTS`](https://github.com/fanhongtao/IELTS) 中的 `IELTS Word List.txt`。
+3. [`hefengxian/my-ielts`](https://github.com/hefengxian/my-ielts) 的词汇模块数据。
 
 词库内容仅用于个人学习整理，词义和完整性以原始资料为准。
 
@@ -87,6 +89,7 @@ styles.css                  页面样式和打印样式
 app.js                      交互、本地保存、查询和筛选
 ielts-dictionary.js         Excel 提取的离线词库
 repo-ielts-dictionary.js    GitHub IELTS Word List 提取的词库
+hf-ielts-dictionary.js      hefengxian/my-ielts 提取的词库
 ```
 
 ## 技术说明
