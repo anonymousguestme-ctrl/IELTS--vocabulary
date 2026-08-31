@@ -115,3 +115,5 @@
 .word-card.slide-away{animation:card-slide-away .36s ease forwards;pointer-events:none}
 @keyframes card-slide-away{from{opacity:1;transform:translateX(0)}to{opacity:0;transform:translateX(110%);max-height:0;padding-top:0;padding-bottom:0;border-bottom-width:0}}
 @media(prefers-reduced-motion:reduce){.word-card.slide-away{animation:none;opacity:0}}
+.mastered .word-title h3,.mastered .meaning{text-decoration:none}
+.word-card.mastered .delete{display:block!important}
