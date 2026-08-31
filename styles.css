@@ -60,7 +60,9 @@
 @media(max-width:760px){.synonym-scale{display:grid;grid-template-columns:1fr}.synonym-item{grid-template-columns:auto 1fr}.synonym-item span,.synonym-item small{grid-column:2}}
 @media(max-width:760px){.add-panel{position:static}.list-panel{max-height:none;overflow:visible;padding-right:0}}
 @media print{.reveal-btn{display:none!important}.details-hidden .pos,.details-hidden .meaning{visibility:visible}}
-.detail b:first-child + span{font-size:15px;line-height:1.55;color:var(--ink)}
+.detail{grid-template-columns:88px minmax(0,1fr);column-gap:14px;row-gap:9px;align-items:start;font-size:15px;line-height:1.55}
+.detail b{font-size:10px;line-height:1.55;padding-top:2px;white-space:nowrap}
+.detail span{font-size:15px;line-height:1.55;color:var(--ink);min-width:0;overflow-wrap:anywhere}
 .related-chip{font-size:14px;padding:4px 9px}
 @media(max-width:760px){
   .shell{width:100%;max-width:none;padding:0 16px;overflow:hidden}
@@ -92,10 +94,10 @@
   .word-title .pos{font-size:11px}
   .meaning-wrap{margin-top:7px;padding:0;align-items:baseline;gap:8px}
   .meaning-wrap .meaning{font-size:16px;line-height:1.45;margin:0}
-  .detail{grid-template-columns:64px minmax(0,1fr);gap:5px;margin-top:14px;font-size:13px;line-height:1.55}
+  .detail{grid-template-columns:72px minmax(0,1fr);column-gap:10px;row-gap:10px;margin-top:16px;font-size:15px;line-height:1.55}
   .detail span{min-width:0;overflow-wrap:anywhere}
-  .detail b{font-size:10px}
-  .related{grid-template-columns:64px minmax(0,1fr);gap:5px;font-size:13px;line-height:1.55}
+  .detail b{font-size:10px;line-height:1.55}
+  .related{grid-template-columns:72px minmax(0,1fr);gap:5px;font-size:14px;line-height:1.55}
   .related-chip{font-size:14px;padding:5px 9px;margin-right:4px}
   .category-tag{order:-1;align-self:flex-start;margin-top:0;margin-bottom:8px}
   .card-actions{gap:2px}
