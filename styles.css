@@ -135,7 +135,8 @@
   .result-count{font:10pt Arial,sans-serif!important;color:#333!important}
   .word-list{display:block!important}
   .word-card{display:block!important;position:relative!important;background:#fff!important;padding:3mm 0!important;margin:0!important;border-bottom:0.5pt solid #bdbdbd!important;break-inside:avoid!important}
-  .word-main{display:grid!important;grid-template-columns:31mm 25mm minmax(0,1fr)!important;column-gap:4mm!important;row-gap:1.2mm!important;align-items:baseline!important}
+  /* 左侧保留单词区，词性与释义右移，便于折页遮住答案 */
+  .word-main{display:grid!important;grid-template-columns:44mm 28mm minmax(0,1fr)!important;column-gap:5mm!important;row-gap:1.2mm!important;align-items:baseline!important}
   .word-title{display:contents!important}
   .word-title h3{grid-column:1!important;grid-row:1!important;margin:0!important;padding:0!important;font:700 12pt Arial,sans-serif!important;color:#111!important}
   .word-title .pos{grid-column:2!important;grid-row:1!important;font:9pt Arial,sans-serif!important;color:#111!important;text-align:left!important}
