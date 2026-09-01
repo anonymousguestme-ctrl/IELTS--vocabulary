@@ -117,3 +117,35 @@
 @media(prefers-reduced-motion:reduce){.word-card.slide-away{animation:none;opacity:0}}
 .mastered .word-title h3,.mastered .meaning{text-decoration:none}
 .word-card.mastered .delete{display:block!important}
+
+/* 简洁 A4 打印版：保留词汇内容，去掉网页装饰 */
+@page{size:A4 portrait;margin:12mm 13mm}
+@media print{
+  :root{--ink:#111;--muted:#333;--line:#bdbdbd;--paper:#fff}
+  *{box-shadow:none!important;text-shadow:none!important}
+  html,body{background:#fff!important;color:#111!important;font-family:Arial,'Helvetica Neue',sans-serif!important;font-size:10pt}
+  .shell{max-width:none!important;padding:0!important;margin:0!important}
+  .topbar,.intro,.stats,.toolbar,.add-panel,footer,.card-actions,.check,.category-tag,.related-chip,.reveal-btn,.synonym-compare{display:none!important}
+  .workspace{padding:0!important}
+  .content-grid{display:block!important}
+  .list-panel{display:block!important;max-height:none!important;height:auto!important;overflow:visible!important;padding:0!important}
+  .list-head{display:flex!important;border-bottom:1.5pt solid #111!important;padding:0 0 5mm!important;margin:0 0 3mm!important}
+  .list-head .eyebrow{display:none!important}
+  .list-head h2{display:block!important;margin:0!important;font:700 16pt Arial,sans-serif!important;color:#111!important}
+  .result-count{font:10pt Arial,sans-serif!important;color:#333!important}
+  .word-list{display:block!important}
+  .word-card{display:block!important;position:relative!important;background:#fff!important;padding:3mm 0!important;margin:0!important;border-bottom:0.5pt solid #bdbdbd!important;break-inside:avoid!important}
+  .word-main{display:grid!important;grid-template-columns:31mm 25mm minmax(0,1fr)!important;column-gap:4mm!important;row-gap:1.2mm!important;align-items:baseline!important}
+  .word-title{display:contents!important}
+  .word-title h3{grid-column:1!important;grid-row:1!important;margin:0!important;padding:0!important;font:700 12pt Arial,sans-serif!important;color:#111!important}
+  .word-title .pos{grid-column:2!important;grid-row:1!important;font:9pt Arial,sans-serif!important;color:#111!important;text-align:left!important}
+  .meaning-wrap{display:block!important;grid-column:3!important;grid-row:1!important;margin:0!important;padding:0!important}
+  .meaning-wrap .meaning{display:block!important;margin:0!important;font:10pt Arial,sans-serif!important;color:#111!important;line-height:1.35!important}
+  .detail{display:grid!important;grid-column:1/-1!important;grid-template-columns:25mm minmax(0,1fr)!important;column-gap:4mm!important;row-gap:1mm!important;margin:2mm 0 0!important;padding:2mm 0 0!important;border-top:0.5pt solid #d0d0d0!important;font:9pt Arial,sans-serif!important;line-height:1.35!important;color:#111!important}
+  .detail b{font:700 8pt Arial,sans-serif!important;color:#555!important;letter-spacing:0!important}
+  .detail span{font:9pt Arial,sans-serif!important;color:#111!important;line-height:1.35!important}
+  .detail b:empty,.detail span:empty{display:none!important}
+  .related{display:none!important}
+  .details-hidden .pos,.details-hidden .meaning{visibility:visible!important}
+  .mastered .word-title h3,.mastered .meaning{color:#111!important;text-decoration:none!important}
+}
