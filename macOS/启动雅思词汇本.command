@@ -21,6 +21,10 @@ else
   until curl --silent --output /dev/null --max-time 1 http://127.0.0.1:8765/; do sleep 0.2; done
 fi
 
-open "http://127.0.0.1:8765/"
+if [ -d "/Applications/Google Chrome.app" ] || [ -d "${HOME}/Applications/Google Chrome.app" ]; then
+  open -a "Google Chrome" "http://127.0.0.1:8765/"
+else
+  open "http://127.0.0.1:8765/"
+fi
 echo "关闭此窗口即可停止服务。"
 wait $server_pid 2>/dev/null
